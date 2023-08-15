@@ -38,8 +38,13 @@ async function getEarthquakes() {
       quakes.push( quake );
 
     }});
+  if (quakes.length >= 1){
+    return parseData(quakes[0])
+  }
+  else {
+    return parseData(parsed_data[1].split(" ").filter(item => !elementsToRemove.includes(item)))
+  }
 
-  return parseData(quakes[0])
 
 
 
